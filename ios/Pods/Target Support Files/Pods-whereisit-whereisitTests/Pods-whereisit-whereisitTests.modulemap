@@ -1,6 +1,0 @@
-module Pods_whereisit_whereisitTests {
-  umbrella header "Pods-whereisit-whereisitTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

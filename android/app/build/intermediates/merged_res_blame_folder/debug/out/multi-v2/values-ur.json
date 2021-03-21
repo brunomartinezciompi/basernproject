@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/brunomartinez/BaseRN/whereisit/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ur/values-ur.xml",
+            "outputFile": "/Users/brunomartinez/BaseRN/base-react-native-project/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ur/values-ur.xml",
             "map": [
                 {
                     "source": "/Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/e601daed4ba62929db8b322b2974c8f8/core-1.1.0/res/values-ur/values-ur.xml",
