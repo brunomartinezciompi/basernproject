@@ -1,0 +1,14 @@
+com/whereisit/BuildConfig.java
+ com.whereisit.BuildConfig
+com/whereisit/MainApplication.java
+ com.whereisit.MainApplication
+ com.whereisit.MainApplication$1
+com/whereisit/MainActivity.java
+ com.whereisit.MainActivity
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
+com/whereisit/ReactNativeFlipper.java
+ com.whereisit.ReactNativeFlipper
+ com.whereisit.ReactNativeFlipper$1
+ com.whereisit.ReactNativeFlipper$2
+ com.whereisit.ReactNativeFlipper$2$1
