@@ -74,22 +74,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-whereisit-tvOS.xcscheme</key>
+		<key>Pods-basernproject-basernprojectTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-whereisit-tvOSTests.xcscheme</key>
+		<key>Pods-basernproject-tvOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-whereisit-whereisitTests.xcscheme</key>
+		<key>Pods-basernproject-tvOSTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-whereisit.xcscheme</key>
+		<key>Pods-basernproject.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

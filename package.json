@@ -1,16 +1,16 @@
 {
-  "name": "whereisit",
+  "name": "basernproject",
   "version": "0.0.1",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brunodlabs/whereisit.git"
+    "url": "git+https://github.com/brunodlabs/basernproject.git"
   },
   "author": "Bruno Martinez Ciompi",
   "bugs": {
-    "url": "https://github.com/brunodlabs/whereisit/issues"
+    "url": "https://github.com/brunodlabs/basernproject/issues"
   },
-  "homepage": "https://github.com/brunodlabs/whereisit#readme",
+  "homepage": "https://github.com/brunodlabs/basernproject#readme",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",

@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.whereisit"
+        applicationId "com.basernproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

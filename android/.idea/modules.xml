@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/whereisit.iml" filepath="$PROJECT_DIR$/.idea/modules/whereisit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/whereisit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/whereisit.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/basernproject.iml" filepath="$PROJECT_DIR$/.idea/modules/basernproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/basernproject.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/basernproject.app.iml" />
     </modules>
   </component>
 </project>
