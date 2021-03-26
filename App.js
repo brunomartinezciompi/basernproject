@@ -1,74 +1,37 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React from "react";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import DetailsView from "./src/screens/details";
+import HomeView from "./src/screens/home";
+import { Text } from "react-native";
+import BackButton from "./src/components/backButton";
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  StatusBar,
-} from 'react-native';
+const Stack = createStackNavigator();
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-const App = () => {
+function App() {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <View style={{backgroundColor: 'red', width: 100, height: 100}} />
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home" screenOptions>
+        <Stack.Screen
+          name="Home"
+          component={HomeView}
+          options={{
+            headerTitle: () => (
+              <Text style={{ fontSize: 20, fontWeight: "500" }}>Welcome</Text>
+            ),
+          }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={DetailsView}
+          options={({ navigation }) => ({
+            headerLeft: () => <BackButton navigation={navigation} />,
+          })}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
+}
 
 export default App;
