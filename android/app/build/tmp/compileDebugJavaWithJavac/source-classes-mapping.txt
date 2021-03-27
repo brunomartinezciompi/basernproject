@@ -1,14 +1,14 @@
-com/basernproject/BuildConfig.java
- com.basernproject.BuildConfig
-com/whereisit/MainApplication.java
+com/basernproject/MainApplication.java
  com.basernproject.MainApplication
  com.basernproject.MainApplication$1
-com/whereisit/MainActivity.java
+com/basernproject/BuildConfig.java
+ com.basernproject.BuildConfig
+com/basernproject/MainActivity.java
  com.basernproject.MainActivity
-com/facebook/react/PackageList.java
- com.facebook.react.PackageList
-com/whereisit/ReactNativeFlipper.java
+com/basernproject/ReactNativeFlipper.java
  com.basernproject.ReactNativeFlipper
  com.basernproject.ReactNativeFlipper$1
  com.basernproject.ReactNativeFlipper$2
  com.basernproject.ReactNativeFlipper$2$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
