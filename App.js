@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailsView from "./src/screens/details";
 import OnboardingView from "./src/screens/onboarding";
+import AppIntro from "./src/screens/appIntro";
 import BackButton from "./src/components/backButton";
 import { AuthenticationProvider } from "./src/contexts/authentication";
 
@@ -13,7 +14,14 @@ function App() {
   return (
     <AuthenticationProvider>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home" screenOptions>
+        <Stack.Navigator initialRouteName="Intro" screenOptions>
+          <Stack.Screen
+            name="Intro"
+            component={AppIntro}
+            options={({ navigation }) => ({
+              headerShown: false,
+            })}
+          />
           <Stack.Screen
             name="Home"
             component={OnboardingView}

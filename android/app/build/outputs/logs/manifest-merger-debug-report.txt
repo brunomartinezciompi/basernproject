@@ -10,12 +10,14 @@ MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] /Users/brunomar
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/11f752d554a58f18cb78594bb6d7f29b/jetified-flipper-fresco-plugin-0.54.0/AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-splash-screen] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [:react-native-community_masked-view] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:lottie-react-native] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-screens/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.64.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/a1aa55eadf1b7749d2f86f4603bcc981/jetified-react-native-0.64.0/AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/9c1469f5a2ad2b4764c3c283cf3fcf11/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/7d02f71687500a1730672583f1fb6342/jetified-android-jsc-r245459/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-linear-gradient] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-reanimated] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-reanimated/android/build/.transforms/1a9a01ea1e326c5a4e9126f0634eda05/jetified-react-native-reanimated-64/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.fresco:flipper:2.2.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/a8ef22749715e718028094cda9845094/jetified-flipper-2.2.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:stetho:2.2.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/7ac865bf14b9ed86a7abba38e53cac18/jetified-stetho-2.2.0/AndroidManifest.xml:2:1-9:12
@@ -32,6 +34,7 @@ MERGED from [com.facebook.fresco:nativeimagetranscoder:2.2.0] /Users/brunomartin
 MERGED from [com.facebook.fresco:imagepipeline-base:2.2.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/1121475a3e7df36ec120d158585ea724/jetified-imagepipeline-base-2.2.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:soloader:2.2.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/98a0d85ee94d031e855dfa65a83a57d5/jetified-soloader-2.2.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.9.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/f190b6dba35b0337bc3b859a92d341a3/jetified-soloader-0.9.0/AndroidManifest.xml:2:1-13:12
+MERGED from [com.airbnb.android:lottie:3.4.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/efee26ce0f535a60700d38b882e9b9ff/jetified-lottie-3.4.0/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/deeb075feedbe52ffb4e36f5b698af53/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/49a425eb020aa8d9cffc945a2839e23d/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat-resources:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/596b40b0ab846efe12094cf291cb6fb8/jetified-appcompat-resources-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -85,6 +88,8 @@ uses-permission#android.permission.INTERNET
 ADDED from /Users/brunomartinez/BaseRN/base-react-native-project/android/app/src/main/AndroidManifest.xml:4:5-67
 MERGED from [com.facebook.flipper:flipper:0.54.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/7b4f77e334414c44f1f46faadc6b0e24/jetified-flipper-0.54.0/AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.54.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/7b4f77e334414c44f1f46faadc6b0e24/jetified-flipper-0.54.0/AndroidManifest.xml:15:5-67
+MERGED from [:lottie-react-native] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
+MERGED from [:lottie-react-native] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-67
 	android:name
 		ADDED from /Users/brunomartinez/BaseRN/base-react-native-project/android/app/src/main/AndroidManifest.xml:4:22-64
 application
@@ -97,6 +102,8 @@ MERGED from [com.facebook.react:react-native:0.64.0] /Users/brunomartinez/.gradl
 MERGED from [com.facebook.react:react-native:0.64.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/a1aa55eadf1b7749d2f86f4603bcc981/jetified-react-native-0.64.0/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.9.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/f190b6dba35b0337bc3b859a92d341a3/jetified-soloader-0.9.0/AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.9.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/f190b6dba35b0337bc3b859a92d341a3/jetified-soloader-0.9.0/AndroidManifest.xml:11:5-20
+MERGED from [com.airbnb.android:lottie:3.4.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/efee26ce0f535a60700d38b882e9b9ff/jetified-lottie-3.4.0/AndroidManifest.xml:9:5-20
+MERGED from [com.airbnb.android:lottie:3.4.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/efee26ce0f535a60700d38b882e9b9ff/jetified-lottie-3.4.0/AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/deeb075feedbe52ffb4e36f5b698af53/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/deeb075feedbe52ffb4e36f5b698af53/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.core:core:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/e601daed4ba62929db8b322b2974c8f8/core-1.1.0/AndroidManifest.xml:24:5-89
@@ -169,6 +176,8 @@ MERGED from [:react-native-splash-screen] /Users/brunomartinez/BaseRN/base-react
 MERGED from [:react-native-splash-screen] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-splash-screen/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-community_masked-view] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_masked-view] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/@react-native-community/masked-view/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:lottie-react-native] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:lottie-react-native] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/lottie-react-native/src/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-gesture-handler] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-gesture-handler/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-safe-area-context] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-safe-area-context/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -181,6 +190,8 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/brunom
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/9c1469f5a2ad2b4764c3c283cf3fcf11/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [org.webkit:android-jsc:r245459] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/7d02f71687500a1730672583f1fb6342/jetified-android-jsc-r245459/AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/7d02f71687500a1730672583f1fb6342/jetified-android-jsc-r245459/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-linear-gradient/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-reanimated] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-reanimated/android/build/.transforms/1a9a01ea1e326c5a4e9126f0634eda05/jetified-react-native-reanimated-64/AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-reanimated] /Users/brunomartinez/BaseRN/base-react-native-project/node_modules/react-native-reanimated/android/build/.transforms/1a9a01ea1e326c5a4e9126f0634eda05/jetified-react-native-reanimated-64/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:flipper:2.2.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/a8ef22749715e718028094cda9845094/jetified-flipper-2.2.0/AndroidManifest.xml:5:5-7:41
@@ -213,6 +224,8 @@ MERGED from [com.facebook.fresco:soloader:2.2.0] /Users/brunomartinez/.gradle/ca
 MERGED from [com.facebook.fresco:soloader:2.2.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/98a0d85ee94d031e855dfa65a83a57d5/jetified-soloader-2.2.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.soloader:soloader:0.9.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/f190b6dba35b0337bc3b859a92d341a3/jetified-soloader-0.9.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.soloader:soloader:0.9.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/f190b6dba35b0337bc3b859a92d341a3/jetified-soloader-0.9.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.airbnb.android:lottie:3.4.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/efee26ce0f535a60700d38b882e9b9ff/jetified-lottie-3.4.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.airbnb.android:lottie:3.4.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/efee26ce0f535a60700d38b882e9b9ff/jetified-lottie-3.4.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.material:material:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/deeb075feedbe52ffb4e36f5b698af53/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/deeb075feedbe52ffb4e36f5b698af53/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/brunomartinez/.gradle/caches/transforms-2/files-2.1/49a425eb020aa8d9cffc945a2839e23d/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
