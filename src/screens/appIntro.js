@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -53,67 +53,34 @@ const IntroSlideItem = ({ title, subtitle, animation, orientation }) => {
   );
 };
 
-const PaginationView = ({}) => {
-  return (
-    <View
-      style={{
-        height: 90,
-        width,
-        backgroundColor: "white",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
+const PaginationView = ({ selectedIndex, navigateNext }) => {
+  const DotView = ({ selected }) => {
+    return (
       <View
-        style={{
-          height: 40,
-          width: 100,
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-          marginLeft: Space.Big,
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "#D4D6DA",
-            height: 10,
-            width: 10,
-            borderRadius: 5,
-          }}
-        ></View>
-        <View
-          style={{
-            backgroundColor: "#D4D6DA",
-            height: 10,
-            width: 10,
-            borderRadius: 5,
-          }}
-        ></View>
-        <View
-          style={{
-            backgroundColor: "#3377FF",
-            height: 10,
-            width: 10,
-            borderRadius: 5,
-          }}
-        ></View>
+        style={[
+          {
+            backgroundColor: selected ? "#3377FF" : "#D4D6DA",
+          },
+          styles.PaginationDotDimension,
+        ]}
+      ></View>
+    );
+  };
+
+  return (
+    <View style={styles.PaginationMainView}>
+      <View style={styles.PaginationDotsView}>
+        <DotView selected={selectedIndex === 0} />
+        <DotView selected={selectedIndex === 1} />
+        <DotView selected={selectedIndex === 2} />
       </View>
 
       <TouchableOpacity
-        style={{
-          height: 60,
-          width: 60,
-          borderRadius: 30,
-          backgroundColor: "#3377FF",
-          marginRight: Space.Big,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        style={styles.PaginationNextButton}
+        onPress={navigateNext}
       >
         <Text style={{ color: "white", fontSize: 14, fontWeight: "700" }}>
-          Next
+          {selectedIndex === 2 ? "Start" : "Next"}
         </Text>
       </TouchableOpacity>
     </View>
@@ -121,15 +88,28 @@ const PaginationView = ({}) => {
 };
 
 const AppIntro = ({ navigation }) => {
+  const [paginationIndex, setPaginationIndex] = useState(0);
+  const scrollViewRef = useRef();
+
+  const handlePageChange = (e) => {
+    var offset = e.nativeEvent.contentOffset;
+    if (offset) {
+      setPaginationIndex(Math.round(offset.x / Space.widthDimension));
+    }
+  };
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
         <ScrollView
+          showsHorizontalScrollIndicator={false}
           style={{ flex: 1 }}
           horizontal={true}
+          onMomentumScrollEnd={handlePageChange}
           scrollEventThrottle={16}
           pagingEnabled={true}
+          ref={scrollViewRef}
         >
           <IntroSlideItem
             orientation={"top"}
@@ -156,17 +136,26 @@ const AppIntro = ({ navigation }) => {
             animation={IntroLottieAnimationThird}
           />
         </ScrollView>
-        <PaginationView />
+        <PaginationView
+          selectedIndex={paginationIndex}
+          navigateNext={() => {
+            paginationIndex === 2
+              ? navigation.navigate("Home")
+              : scrollViewRef.current.scrollTo({
+                  x: (paginationIndex + 1) * Space.widthDimension,
+                  y: 0,
+                  animated: true,
+                });
+          }}
+        />
       </SafeAreaView>
     </>
   );
 };
 
-export default AppIntro;
-
 const styles = StyleSheet.create({
   IntroSlideItemTitle: {
-    marginLeft: Space.Big,
+    marginLeft: Space.Big * 2,
     marginRight: Space.Big * 3,
     fontSize: 30,
     fontWeight: "600",
@@ -176,8 +165,40 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "400",
     lineHeight: 20,
-    marginLeft: Space.Big,
+    marginLeft: Space.Big * 2,
     marginRight: Space.Big * 3,
     color: "gray",
   },
+  PaginationMainView: {
+    height: 90,
+    width,
+    backgroundColor: "white",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  PaginationDotsView: {
+    height: 40,
+    width: 100,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+    marginLeft: Space.Big,
+  },
+  PaginationDotDimension: {
+    height: 10,
+    width: 10,
+    borderRadius: 5,
+  },
+  PaginationNextButton: {
+    height: 60,
+    width: 60,
+    borderRadius: 30,
+    backgroundColor: "#3377FF",
+    marginRight: Space.Big,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
+
+export default AppIntro;
