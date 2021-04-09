@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -7,10 +7,15 @@ import OnboardingView from "./src/screens/onboarding";
 import AppIntro from "./src/screens/appIntro";
 import BackButton from "./src/components/backButton";
 import { AuthenticationProvider } from "./src/contexts/authentication";
+import SplashScreen from "react-native-splash-screen";
 
 const Stack = createStackNavigator();
 
 function App() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <AuthenticationProvider>
       <NavigationContainer>
