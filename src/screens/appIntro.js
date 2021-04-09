@@ -14,11 +14,28 @@ import IntroLottieAnimationSecond from "../assets/lottie/appIntroLottie2.json";
 import IntroLottieAnimationThird from "../assets/lottie/appIntroLottie3.json";
 
 import Space from "../utils/space";
+import { useEffect } from "react";
 
 const width = Space.widthDimension,
   height = Space.heightDimension;
 
-const IntroSlideItem = ({ title, subtitle, animation, orientation }) => {
+const IntroSlideItem = ({
+  title,
+  subtitle,
+  animation,
+  orientation,
+  index,
+  paginationIndex,
+}) => {
+  const imageComponentLottieAnimation = useRef();
+  useEffect(() => {
+    if (index === paginationIndex) {
+      imageComponentLottieAnimation.current.play();
+    } else {
+      imageComponentLottieAnimation.current.reset();
+    }
+  }, [paginationIndex]);
+
   const LabelsComponents = () => {
     return (
       <View style={{ flex: 2, justifyContent: "center" }}>
@@ -38,7 +55,7 @@ const IntroSlideItem = ({ title, subtitle, animation, orientation }) => {
         }}
       >
         <View style={{ height: "90%", aspectRatio: 1 }}>
-          <LottieView source={animation} autoPlay loop />
+          <LottieView source={animation} ref={imageComponentLottieAnimation} />
         </View>
       </View>
     );
@@ -112,14 +129,18 @@ const AppIntro = ({ navigation }) => {
           ref={scrollViewRef}
         >
           <IntroSlideItem
+            index={0}
+            paginationIndex={paginationIndex}
             orientation={"top"}
-            title={"Listen to the greatests"}
+            title={"Experience music like never before"}
             subtitle={
-              "Now you can listen to the best music available on your device"
+              "APP_NAME gets you closer to the songs, albums and artists you love"
             }
             animation={IntroLottieAnimationFirst}
           />
           <IntroSlideItem
+            index={1}
+            paginationIndex={paginationIndex}
             orientation={"bottom"}
             title={"Listen to the greatests"}
             subtitle={
@@ -128,6 +149,8 @@ const AppIntro = ({ navigation }) => {
             animation={IntroLottieAnimationSecond}
           />
           <IntroSlideItem
+            index={2}
+            paginationIndex={paginationIndex}
             orientation={"top"}
             title={"Listen to the greatests"}
             subtitle={
