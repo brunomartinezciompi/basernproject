@@ -109,17 +109,27 @@ const PaginationView = ({ selectedIndex, navigateNext }) => {
 };
 
 const AppIntro = ({ navigation }) => {
+  const dimension = parseInt(Space.widthDimension);
   const [paginationIndex, setPaginationIndex] = useState(0);
   const scrollViewRef = useRef();
+  const scrollViewOffset = useRef(0);
 
   const handlePageChange = (e) => {
     var offset = parseInt(e.nativeEvent.contentOffset.x);
-    const dimension = parseInt(Space.widthDimension);
     const newIndex = Math.round(offset / dimension);
-    const setPaginationNeeded =
-      offset >= dimension * newIndex && paginationIndex !== newIndex;
-    if (setPaginationNeeded) {
+    const scrollingToRight = offset > scrollViewOffset.current;
+    const scrollingToLeft = offset < scrollViewOffset.current;
+    let paginationNeeded;
+    if (scrollingToRight) {
+      paginationNeeded =
+        offset >= dimension * newIndex && paginationIndex !== newIndex;
+    } else if (scrollingToLeft) {
+      paginationNeeded =
+        offset <= dimension * newIndex && paginationIndex !== newIndex;
+    }
+    if (paginationNeeded) {
       setPaginationIndex(newIndex);
+      scrollViewOffset.current = offset;
     }
   };
 
