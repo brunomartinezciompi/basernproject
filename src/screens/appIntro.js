@@ -55,7 +55,11 @@ const IntroSlideItem = ({
         }}
       >
         <View style={{ height: "90%", aspectRatio: 1 }}>
-          <LottieView source={animation} ref={imageComponentLottieAnimation} />
+          <LottieView
+            source={animation}
+            ref={imageComponentLottieAnimation}
+            imageAssetsFolder="lottie/image"
+          />
         </View>
       </View>
     );
@@ -109,9 +113,13 @@ const AppIntro = ({ navigation }) => {
   const scrollViewRef = useRef();
 
   const handlePageChange = (e) => {
-    var offset = e.nativeEvent.contentOffset;
-    if (offset) {
-      setPaginationIndex(Math.round(offset.x / Space.widthDimension));
+    var offset = parseInt(e.nativeEvent.contentOffset.x);
+    const dimension = parseInt(Space.widthDimension);
+    const newIndex = Math.round(offset / dimension);
+    const setPaginationNeeded =
+      offset >= dimension * newIndex && paginationIndex !== newIndex;
+    if (setPaginationNeeded) {
+      setPaginationIndex(newIndex);
     }
   };
 
@@ -123,7 +131,7 @@ const AppIntro = ({ navigation }) => {
           showsHorizontalScrollIndicator={false}
           style={{ flex: 1 }}
           horizontal={true}
-          onMomentumScrollEnd={handlePageChange}
+          onScroll={handlePageChange}
           scrollEventThrottle={16}
           pagingEnabled={true}
           ref={scrollViewRef}
@@ -162,13 +170,15 @@ const AppIntro = ({ navigation }) => {
         <PaginationView
           selectedIndex={paginationIndex}
           navigateNext={() => {
-            paginationIndex === 2
-              ? navigation.navigate("Home")
-              : scrollViewRef.current.scrollTo({
-                  x: (paginationIndex + 1) * Space.widthDimension,
-                  y: 0,
-                  animated: true,
-                });
+            if (paginationIndex === 2) {
+              navigation.navigate("Home");
+            } else {
+              scrollViewRef.current.scrollTo({
+                x: (paginationIndex + 1) * Space.widthDimension,
+                y: 0,
+                animated: true,
+              });
+            }
           }}
         />
       </SafeAreaView>
