@@ -28,10 +28,11 @@ function App() {
             })}
           />
           <Stack.Screen
-            name="Home"
+            name="Onboarding"
             component={OnboardingView}
             options={{
               headerShown: false,
+              gestureEnabled: false,
             }}
           />
           <Stack.Screen

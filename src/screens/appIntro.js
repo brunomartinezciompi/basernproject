@@ -128,9 +128,13 @@ const AppIntro = ({ navigation }) => {
         offset <= dimension * newIndex && paginationIndex !== newIndex;
     }
     if (paginationNeeded) {
-      setPaginationIndex(newIndex);
-      scrollViewOffset.current = offset;
+      updateStateAfterScroll(newIndex, offset);
     }
+  };
+
+  const updateStateAfterScroll = (newIndex, offset) => {
+    setPaginationIndex(newIndex);
+    scrollViewOffset.current = offset;
   };
 
   return (
@@ -180,11 +184,13 @@ const AppIntro = ({ navigation }) => {
         <PaginationView
           selectedIndex={paginationIndex}
           navigateNext={() => {
+            const newIndex = paginationIndex + 1;
+            const newOffset = newIndex * Space.widthDimension;
             if (paginationIndex === 2) {
-              navigation.navigate("Home");
+              navigation.navigate("Onboarding");
             } else {
               scrollViewRef.current.scrollTo({
-                x: (paginationIndex + 1) * Space.widthDimension,
+                x: newOffset,
                 y: 0,
                 animated: true,
               });
