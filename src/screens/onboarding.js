@@ -14,6 +14,7 @@ import Space from "../utils/space";
 import LoginTextInput from "../components/loginTextInput";
 import SocialButton from "../components/socialButton";
 import SocialLogin from "../utils/socialButtons";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 const OnboardingForm = ({ navigation }) => {
   const { authenticationState, dispatch } = useContext(AuthenticationContext);
@@ -109,9 +110,12 @@ export default function _({ navigation }) {
       <StatusBar barStyle="light-content" />
       <SafeAreaView style={{ flex: 0, backgroundColor: "#313BA5" }} />
       <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
-        <ScrollView bounces={false} style={{ backgroundColor: "transparent" }}>
+        <KeyboardAwareScrollView
+          bounces={false}
+          style={{ backgroundColor: "transparent" }}
+        >
           <OnboardingForm navigation={navigation} />
-        </ScrollView>
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </>
   );
@@ -141,7 +145,6 @@ const styles = StyleSheet.create({
   },
   homeNavigationViewStyle: {
     flex: 1,
-    minHeight: Space.heightDimension,
   },
   loginButton: {
     width: Space.widthDimension - 60,
