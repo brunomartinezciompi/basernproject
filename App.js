@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailsView from "./src/screens/details";
 import OnboardingView from "./src/screens/onboarding";
+import SignUpView from "./src/screens/sign-up";
 import AppIntro from "./src/screens/appIntro";
 import BackButton from "./src/components/backButton";
 import { AuthenticationProvider } from "./src/contexts/authentication";
@@ -33,6 +34,15 @@ function App() {
             options={{
               headerShown: false,
               gestureEnabled: false,
+            }}
+          />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUpView}
+            options={{
+              headerLeft: null, 
+              headerTitle: "",
+              headerStyle: { backgroundColor: "black", shadowOpacity: 0}
             }}
           />
           <Stack.Screen

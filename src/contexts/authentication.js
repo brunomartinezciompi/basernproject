@@ -6,7 +6,7 @@ const AuthenticationContext = createContext(initialState);
 const AuthenticationProvider = ({ children, navigation }) => {
   const [authenticationState, dispatch] = useReducer((state, action) => {
     switch (action.type) {
-      case "sign in":
+      case "onboarding_sign_in":
         return { authenticated: true };
       default:
         return { authenticated: false };

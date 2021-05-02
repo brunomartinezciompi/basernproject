@@ -15,8 +15,9 @@ import LoginTextInput from "../components/loginTextInput";
 import SocialButton from "../components/socialButton";
 import SocialLogin from "../utils/socialButtons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { validateEmail, validatePasswords } from "../utils/onboarding";
 
-const OnboardingForm = ({ navigation }) => {
+const SignUpForm = ({ navigation }) => {
   const { authenticationState, dispatch } = useContext(AuthenticationContext);
 
   useEffect(() => {
@@ -31,30 +32,23 @@ const OnboardingForm = ({ navigation }) => {
   const [authenticationForm, setAuthenticationForm] = useState({
     email: "",
     password: "",
+    confirmPassword: ""
   });
 
   return (
     <LinearGradient
       style={styles.homeNavigationViewStyle}
-      colors={["#313BA5", "black"]}
+      colors={["black", "#313BA5"]}
     >
-      <Text style={styles.loginTitleStyle}>Welcome</Text>
+      <Text style={styles.SignUpTitleStyle}>Sign Up</Text>
       <EmailPasswordForm
+        confirmPassword={true}
         authenticationForm={authenticationForm}
         setForm={setAuthenticationForm}
         action={dispatch}
       />
       <Text style={styles.orTitleStyle}>or</Text>
       <SocialForm action={dispatch} />
-      <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-        <Text style={styles.orTitleStyle}>
-          Don't have an account yet?
-          <Text style={[styles.orTitleStyle, { fontWeight: "bold" }]}>
-            {" "}
-            Sign Up
-          </Text>
-        </Text>
-      </TouchableOpacity>
     </LinearGradient>
   );
 };
@@ -69,7 +63,13 @@ const SocialForm = ({ action }) => {
   );
 };
 
-const EmailPasswordForm = ({ authenticationForm, action, setForm, navigation }) => {
+const EmailPasswordForm = ({ authenticationForm, action, setForm, confirmPassword }) => {
+
+  const validateSignUpButton = () => {
+    return validateEmail(authenticationForm.email) && validatePasswords(authenticationForm.password, authenticationForm.confirmPassword)
+  }
+
+
   return (
     <>
       <LoginTextInput
@@ -91,16 +91,24 @@ const EmailPasswordForm = ({ authenticationForm, action, setForm, navigation }) 
         }
         placeholder="Password"
       />
-      <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
-        <Text style={styles.forgotPasswordTitleStyle}>Forgot password?</Text>
-      </TouchableOpacity>
+      {confirmPassword ? <LoginTextInput
+        secure
+        value={authenticationForm.confirmPassword}
+        setValue={(x) =>
+          setForm((form) => {
+            return { email: form.email, password: form.password, confirmPassword: x.confirmPassword };
+          })
+        }
+        placeholder="Confirm password"
+      /> : null}
       <TouchableOpacity
-        style={styles.loginButton}
+        disabled={validateSignUpButton()}
+        style={styles.signUpButton}
         onPress={() => {
           action({ type: "onboarding_sign_in" });
         }}
       >
-        <Text style={{ fontSize: 16, color: "white" }}>Log In</Text>
+        <Text style={{ fontSize: 16, color: "white" }}>Sign Up</Text>
       </TouchableOpacity>
     </>
   );
@@ -110,13 +118,13 @@ export default function _({ navigation }) {
   return (
     <>
       <StatusBar barStyle="light-content" />
-      <SafeAreaView style={{ flex: 0, backgroundColor: "#313BA5" }} />
-      <SafeAreaView style={{ flex: 1, backgroundColor: "black" }}>
+      <SafeAreaView style={{ flex: 0, backgroundColor: "black" }} />
+      <SafeAreaView style={{ flex: 1, backgroundColor: "#313BA5" }}>
         <KeyboardAwareScrollView
           bounces={false}
           style={{ backgroundColor: "transparent" }}
         >
-          <OnboardingForm navigation={navigation} />
+          <SignUpForm navigation={navigation} />
         </KeyboardAwareScrollView>
       </SafeAreaView>
     </>
@@ -124,19 +132,12 @@ export default function _({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  loginTitleStyle: {
+  SignUpTitleStyle: {
     margin: Space.Big,
     marginTop: Space.Big * 4,
     fontSize: 36,
     fontWeight: "700",
     color: "white",
-    alignSelf: "center",
-  },
-  forgotPasswordTitleStyle: {
-    fontSize: 14,
-    color: "white",
-    marginTop: Space.Big,
-    marginBottom: Space.Big * 2,
     alignSelf: "center",
   },
   orTitleStyle: {
@@ -148,9 +149,10 @@ const styles = StyleSheet.create({
   homeNavigationViewStyle: {
     flex: 1,
   },
-  loginButton: {
+  signUpButton: {
     width: Space.widthDimension - 60,
-    marginVertical: Space.Big,
+    marginTop: Space.Big * 3,
+    marginBottom: Space.Big,
     height: 60,
     borderRadius: 20,
     borderColor: "white",
