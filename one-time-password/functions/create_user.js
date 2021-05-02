@@ -5,7 +5,7 @@ module.exports = function(req, res) {
     return res.status(422).send({error: "You must provide a phone number"});
   }
 
-  const userPhone = String(req.body.phone).replace(/[^\d]/g, "");
+  const userPhone = String(req.body.phone);
 
   admin.auth().createUser({uid: userPhone})
       .then((user) => res.send(user))

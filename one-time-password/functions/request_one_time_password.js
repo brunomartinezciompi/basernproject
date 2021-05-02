@@ -6,12 +6,12 @@ module.exports = function(req, res) {
     return res.status(422).send({error: "You must provide a phone number"});
   }
 
-  const userPhone = String(req.body.phone).replace(/[^\d]/g, "");
+  const userPhone = String(req.body.phone);
 
   admin
       .auth()
       .getUser(userPhone)
-      .then((userRecord) => {
+      .then(() => {
         const code = Math.floor(Math.random() * 8999 * 1000);
         twilio.messages.create(
             {
@@ -22,16 +22,15 @@ module.exports = function(req, res) {
             (err) => {
               if (err) {
                 res.status(422).send({error: err});
-
-                admin
-                    .database()
-                    .ref("users/" + userPhone)
-                    .update({code: code, codeValid: true}, () => {
-                      res.send({success: true});
-                    });
               }
+              admin
+                  .database()
+                  .ref("users/" + userPhone)
+                  .update({code: code, codeValid: true}, () => {
+                    res.send({success: true});
+                  });
             }
         );
       })
-      .catch((err) => res.status(422).send({error: "User not found"}));
+      .catch((err) => res.status(422).send({error: err}));
 };
