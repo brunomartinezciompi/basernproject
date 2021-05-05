@@ -16,6 +16,7 @@ import SocialButton from "../components/socialButton";
 import SocialLogin from "../utils/socialButtons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { validateEmail, validatePasswords } from "../utils/onboarding";
+import Colors from "../utils/colors";
 
 const SignUpForm = ({ navigation }) => {
   const { authenticationState, dispatch } = useContext(AuthenticationContext);
@@ -32,7 +33,7 @@ const SignUpForm = ({ navigation }) => {
   const [authenticationForm, setAuthenticationForm] = useState({
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   });
 
   return (
@@ -42,7 +43,6 @@ const SignUpForm = ({ navigation }) => {
     >
       <Text style={styles.SignUpTitleStyle}>Sign Up</Text>
       <EmailPasswordForm
-        confirmPassword={true}
         authenticationForm={authenticationForm}
         setForm={setAuthenticationForm}
         action={dispatch}
@@ -63,12 +63,27 @@ const SocialForm = ({ action }) => {
   );
 };
 
-const EmailPasswordForm = ({ authenticationForm, action, setForm, confirmPassword }) => {
-
+const EmailPasswordForm = ({
+  authenticationForm,
+  action,
+  setForm,
+}) => {
   const validateSignUpButton = () => {
-    return validateEmail(authenticationForm.email) && validatePasswords(authenticationForm.password, authenticationForm.confirmPassword)
-  }
+    const emailHaveError = validateEmail(authenticationForm.email)
 
+
+    const passwordHaveError = validatePasswords(
+      authenticationForm.password,
+      authenticationForm.confirmPassword
+    )
+
+    return (
+      !emailHaveError.error &&
+      !passwordHaveError.error
+    );
+  };
+
+  const signUpValidated = validateSignUpButton();
 
   return (
     <>
@@ -76,7 +91,7 @@ const EmailPasswordForm = ({ authenticationForm, action, setForm, confirmPasswor
         value={authenticationForm.email}
         setValue={(x) =>
           setForm((form) => {
-            return { email: x, password: form.password };
+            return { email: x, password: form.password, confirmPassword: form.confirmPassword };
           })
         }
         placeholder="Email"
@@ -86,29 +101,45 @@ const EmailPasswordForm = ({ authenticationForm, action, setForm, confirmPasswor
         value={authenticationForm.password}
         setValue={(x) =>
           setForm((form) => {
-            return { email: form.email, password: x };
+            return { email: form.email, password: x, confirmPassword: form.confirmPassword };
           })
         }
         placeholder="Password"
       />
-      {confirmPassword ? <LoginTextInput
-        secure
-        value={authenticationForm.confirmPassword}
-        setValue={(x) =>
-          setForm((form) => {
-            return { email: form.email, password: form.password, confirmPassword: x.confirmPassword };
-          })
-        }
-        placeholder="Confirm password"
-      /> : null}
+        <LoginTextInput
+          secure
+          value={authenticationForm.confirmPassword}
+          setValue={(x) =>
+            setForm((form) => {
+              return {
+                email: form.email,
+                password: form.password,
+                confirmPassword: x,
+              };
+            })
+          }
+          placeholder="Confirm password"
+        />
       <TouchableOpacity
-        disabled={validateSignUpButton()}
-        style={styles.signUpButton}
+        disabled={signUpValidated}
+        style={
+          signUpValidated
+            ? styles.signUpButton
+            : [styles.signUpButton, { borderColor: Colors.whiteDisabled }]
+        }
         onPress={() => {
-          action({ type: "onboarding_sign_in" });
+          action({ type: "onboarding_sign_up" });
         }}
       >
-        <Text style={{ fontSize: 16, color: "white" }}>Sign Up</Text>
+        <Text
+          style={
+            signUpValidated
+              ? { fontSize: 16, color: "white" }
+              : { color: Colors.whiteDisabled }
+          }
+        >
+          Sign Up
+        </Text>
       </TouchableOpacity>
     </>
   );

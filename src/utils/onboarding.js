@@ -1,21 +1,22 @@
 export const validateEmail = (email) => {
-    return true /* TODO */
+    return { error: email === "" } /* TODO */
 };
 
 const validatePassword = (password) => {
-    return true /* TODO */
+    return { error: password === "" } /* TODO */
 }
 
 export const validatePasswords = (password, confirmPassword) => {
-    if (!validatePassword(password)) {
+    if (validatePassword(password).error) {
         return { error: "Password is not valid"}
     }
 
-    if (!validatePassword(confirmPassword)) {
+    if (validatePassword(confirmPassword).error) {
         return { error: "Confirm password is not valid"}
     }
 
     if (password !== confirmPassword) {
+        console.log(password, confirmPassword)
         return { error: "Passwords do not match"}
     }
 
