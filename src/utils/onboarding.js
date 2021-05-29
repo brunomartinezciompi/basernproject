@@ -16,7 +16,6 @@ export const validatePasswords = (password, confirmPassword = password) => {
     }
 
     if (password !== confirmPassword) {
-        console.log(password, confirmPassword)
         return { error: "Passwords do not match"}
     }
 
