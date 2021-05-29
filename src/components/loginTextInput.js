@@ -7,7 +7,9 @@ export default LoginTextInput = ({ value, setValue, placeholder, secure }) => {
     <View style={{ alignItems: "center" }}>
       <TextInput
         value={value}
+        selectionColor="white"
         onChangeText={setValue}
+        autoCapitalize="none"
         style={styles.textInput}
         placeholder={placeholder}
         placeholderTextColor="white"

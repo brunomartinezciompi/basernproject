@@ -15,6 +15,8 @@ import LoginTextInput from "../components/loginTextInput";
 import SocialButton from "../components/socialButton";
 import SocialLogin from "../utils/socialButtons";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { validateEmail, validatePasswords } from "../utils/onboarding";
+import Colors from "../utils/colors";
 
 const OnboardingForm = ({ navigation }) => {
   const { authenticationState, dispatch } = useContext(AuthenticationContext);
@@ -69,7 +71,24 @@ const SocialForm = ({ action }) => {
   );
 };
 
-const EmailPasswordForm = ({ authenticationForm, action, setForm, navigation }) => {
+const EmailPasswordForm = ({
+  authenticationForm,
+  action,
+  setForm,
+  navigation,
+}) => {
+  const validateSignInButton = () => {
+    const emailHaveError = validateEmail(authenticationForm.email);
+
+    const passwordHaveError = validatePasswords(
+      authenticationForm.password,
+    );
+
+    return !emailHaveError.error && !passwordHaveError.error;
+  };
+
+  const signInValidated = validateSignInButton();
+
   return (
     <>
       <LoginTextInput
@@ -95,12 +114,28 @@ const EmailPasswordForm = ({ authenticationForm, action, setForm, navigation }) 
         <Text style={styles.forgotPasswordTitleStyle}>Forgot password?</Text>
       </TouchableOpacity>
       <TouchableOpacity
-        style={styles.loginButton}
+        disabled={!signInValidated}
+        style={
+          signInValidated
+            ? styles.loginButton
+            : [
+                styles.loginButton,
+                { borderColor: Colors.whiteDisabled, borderWidth: 0.5 },
+              ]
+        }
         onPress={() => {
           action({ type: "onboarding_sign_in" });
         }}
       >
-        <Text style={{ fontSize: 16, color: "white" }}>Log In</Text>
+        <Text
+          style={
+            signInValidated
+              ? { fontSize: 16, color: "white" }
+              : { color: Colors.whiteDisabled }
+          }
+        >
+          Log In
+        </Text>
       </TouchableOpacity>
     </>
   );

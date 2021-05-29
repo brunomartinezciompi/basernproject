@@ -6,7 +6,7 @@ const validatePassword = (password) => {
     return { error: password === "" } /* TODO */
 }
 
-export const validatePasswords = (password, confirmPassword) => {
+export const validatePasswords = (password, confirmPassword = password) => {
     if (validatePassword(password).error) {
         return { error: "Password is not valid"}
     }
@@ -16,7 +16,6 @@ export const validatePasswords = (password, confirmPassword) => {
     }
 
     if (password !== confirmPassword) {
-        console.log(password, confirmPassword)
         return { error: "Passwords do not match"}
     }
 

@@ -46,6 +46,7 @@ const SignUpForm = ({ navigation }) => {
         authenticationForm={authenticationForm}
         setForm={setAuthenticationForm}
         action={dispatch}
+        navigation={navigation}
       />
       <Text style={styles.orTitleStyle}>or</Text>
       <SocialForm action={dispatch} />
@@ -63,24 +64,16 @@ const SocialForm = ({ action }) => {
   );
 };
 
-const EmailPasswordForm = ({
-  authenticationForm,
-  action,
-  setForm,
-}) => {
+const EmailPasswordForm = ({ authenticationForm, action, setForm, navigation }) => {
   const validateSignUpButton = () => {
-    const emailHaveError = validateEmail(authenticationForm.email)
-
+    const emailHaveError = validateEmail(authenticationForm.email);
 
     const passwordHaveError = validatePasswords(
       authenticationForm.password,
       authenticationForm.confirmPassword
-    )
-
-    return (
-      !emailHaveError.error &&
-      !passwordHaveError.error
     );
+
+    return !emailHaveError.error && !passwordHaveError.error;
   };
 
   const signUpValidated = validateSignUpButton();
@@ -91,7 +84,11 @@ const EmailPasswordForm = ({
         value={authenticationForm.email}
         setValue={(x) =>
           setForm((form) => {
-            return { email: x, password: form.password, confirmPassword: form.confirmPassword };
+            return {
+              email: x,
+              password: form.password,
+              confirmPassword: form.confirmPassword,
+            };
           })
         }
         placeholder="Email"
@@ -101,34 +98,42 @@ const EmailPasswordForm = ({
         value={authenticationForm.password}
         setValue={(x) =>
           setForm((form) => {
-            return { email: form.email, password: x, confirmPassword: form.confirmPassword };
+            return {
+              email: form.email,
+              password: x,
+              confirmPassword: form.confirmPassword,
+            };
           })
         }
         placeholder="Password"
       />
-        <LoginTextInput
-          secure
-          value={authenticationForm.confirmPassword}
-          setValue={(x) =>
-            setForm((form) => {
-              return {
-                email: form.email,
-                password: form.password,
-                confirmPassword: x,
-              };
-            })
-          }
-          placeholder="Confirm password"
-        />
+      <LoginTextInput
+        secure
+        value={authenticationForm.confirmPassword}
+        setValue={(x) =>
+          setForm((form) => {
+            return {
+              email: form.email,
+              password: form.password,
+              confirmPassword: x,
+            };
+          })
+        }
+        placeholder="Confirm password"
+      />
       <TouchableOpacity
-        disabled={signUpValidated}
+        disabled={!signUpValidated}
         style={
           signUpValidated
             ? styles.signUpButton
-            : [styles.signUpButton, { borderColor: Colors.whiteDisabled }]
+            : [
+                styles.signUpButton,
+                { borderColor: Colors.whiteDisabled, borderWidth: 0.5 },
+              ]
         }
         onPress={() => {
           action({ type: "onboarding_sign_up" });
+          navigation.navigate("SignUpVerificationPhone");
         }}
       >
         <Text
