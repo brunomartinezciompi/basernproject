@@ -2,7 +2,7 @@ import React from "react";
 import BackArrow from "../assets/images/back-arrow.png";
 import { TouchableOpacity, Image } from "react-native";
 
-export default BackButton = ({ navigation }) => {
+export default BackButton = ({ navigation, color = "white" }) => {
   return (
     <TouchableOpacity
       onPress={() => navigation.goBack()}
@@ -16,7 +16,7 @@ export default BackButton = ({ navigation }) => {
       <Image
         source={BackArrow}
         resizeMode="contain"
-        style={{ flexGrow: 1 }}
+        style={{ flexGrow: 1, tintColor: color }}
       ></Image>
     </TouchableOpacity>
   );

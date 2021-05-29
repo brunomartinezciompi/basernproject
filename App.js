@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import DetailsView from "./src/screens/details";
 import OnboardingView from "./src/screens/onboarding";
+import SignUpView from "./src/screens/sign-up";
+import SignUpVerificationPhone from "./src/screens/sign-up-verification-phone";
 import AppIntro from "./src/screens/appIntro";
 import BackButton from "./src/components/backButton";
 import { AuthenticationProvider } from "./src/contexts/authentication";
@@ -34,6 +36,24 @@ function App() {
               headerShown: false,
               gestureEnabled: false,
             }}
+          />
+          <Stack.Screen
+            name="SignUp"
+            component={SignUpView}
+            options={({ _, navigation }) => ({
+              headerLeft: () => <BackButton navigation={navigation} />,
+              headerTitle: "",
+              headerStyle: { backgroundColor: "black", shadowOpacity: 0 },
+            })}
+          />
+          <Stack.Screen
+            name="SignUpVerificationPhone"
+            component={SignUpVerificationPhone}
+            options={({ _, navigation }) => ({
+              headerLeft: () => <BackButton navigation={navigation} />,
+              headerTitle: "",
+              headerStyle: { backgroundColor: "black", shadowOpacity: 0 },
+            })}
           />
           <Stack.Screen
             name="Details"

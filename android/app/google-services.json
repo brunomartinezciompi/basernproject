@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "315809487651",
+    "project_id": "basernproject",
+    "storage_bucket": "basernproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315809487651:android:705b088e7595221a66ca96",
+        "android_client_info": {
+          "package_name": "brunomartinezciompi.basernproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "315809487651-3r4l7q4ao3o0laqqaajirl85c775qiad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA75dDEPV1HSePaAFnEBZ9X8ZDA4baLiU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "315809487651-3r4l7q4ao3o0laqqaajirl85c775qiad.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "315809487651-sj2br1s012jkki4r17u2b7pvkkgrl069.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "brunomartinezciompi.basernproject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
