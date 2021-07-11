@@ -1,6 +1,0 @@
-module Pods_basernproject {
-  umbrella header "Pods-basernproject-umbrella.h"
-
-  export *
-  module * { export * }
-}
