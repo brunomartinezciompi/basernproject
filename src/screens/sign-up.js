@@ -133,6 +133,7 @@ const EmailPasswordForm = ({ authenticationForm, action, setForm, navigation }) 
         }
         onPress={() => {
           action({ type: "onboarding_sign_up" });
+          navigation.navigate("SignUpVerificationPhone");
         }}
       >
         <Text
